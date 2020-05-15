@@ -1,8 +1,11 @@
 const app = require('express')()
+const consign = require('consign')
 
-app.get('', (req, res) => {
-    res.send(`asddsa`)
-})
+consign()
+    .then('./config/middlewares.js')
+    .then('./api')
+    .then('./config/routes.js')
+    .into(app)
 
 app.listen(3000, () => {
     console.log('Application running in the port 3000')
