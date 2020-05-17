@@ -4,6 +4,79 @@ module.exports = app => {
     save = (req, res) => {
         const article = { ...req.body }
         if (req.params.id) article.id = req.params.id
-        return
+        
+        try {
+            existsOrError(article.name, "'name' nao informado")
+            existsOrError(article.description, "'description' nao informada")
+            existsOrError(article.categoryId, "'categoryId' nao informada")
+            existsOrError(article.userId, "'userId' nao informado")
+            existsOrError(article.content, "'content' nao informado")
+        } catch(msg) {
+            res.status(400).send(msg)
+        }
+
+        if (article.id) {
+            app.db('articles')
+                .update(article)
+                .where({ id: article.id })
+                .then(_ => res.status(204).send())
+                .catch(err => res.status(500).send(err))
+        } else {
+            app.db('articles')
+                .insert(article)
+                .then(_ => res.status(204).send())
+                .catch(err => res.status(500).send(err))
+        }
+
+    }
+
+    const remove = (req, res) => {
+        try {
+            const rowsDeleted = app.db('articles')
+                .where({ id: req.params.id })
+                .del()
+            existsOrError(rowsDeleted, 'artigo nao foi encontrado')
+
+            res.status(204).send()
+        } catch(msg) {
+            res.status(500).send(msg)
+        }
+    }
+
+    const limit = 10
+    const get = async (req, res) => {
+        const page = req.query.page || 1
+
+        const result = app.db('articles').count('id').first()
+        const count = parseInt(result.count)
+
+        app.db('articles')
+            .select('id', 'name', 'description')
+            .limit(limit)
+            .offset(page * limit - limit)
+            .then(article => res.json({
+                data: article, 
+                count, 
+                limit
+            }))
+            .catch(err => res.status(500).send(err))
+    }
+
+    const getById = (req, res) => {
+        app.db('articles')
+            .where({ id: req.params.id })
+            .first()
+            .then(article => {
+                article.content = article.content.toString() // Artigo vem no formato binário, deve ser convertido para string
+                return res.json(article)
+            })
+            .catch(err => res.status(500).send(err))
+    }
+
+    return {
+        save,
+        remove,
+        get,
+        getById
     }
 }
