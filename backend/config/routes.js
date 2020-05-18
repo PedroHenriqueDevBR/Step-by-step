@@ -1,30 +1,43 @@
+const admin = require('../config/admin')
+
 module.exports = app => {
+    app.post('/signup', app.api.user.save)
+    app.post('/signin', app.api.auth.signin)
+    app.post('/validateToken', app.api.auth.validadeToken)
+
     app.route('/users')
-        .get(app.api.user.get)
-        .post(app.api.user.save)
+        .all(app.config.passport.authenticate())
+        .get(admin(app.api.user.get))
+        .post(admin(app.api.user.save))
     
     app.route('/users/:id')
-        .put(app.api.user.save)
+        .all(app.config.passport.authenticate())
+        .put(admin(app.api.user.save))
 
     app.route('/categories')
-        .get(app.api.category.get)
-        .post(app.api.category.save)
+        .all(app.config.passport.authenticate())
+        .get(admin(app.api.category.get))
+        .post(admin(app.api.category.save))
 
     app.route('/categories/tree')
+        .all(app.config.passport.authenticate())
         .get(app.api.category.getTree)
 
     app.route('/categories/:id')
+        .all(app.config.passport.authenticate())
         .get(app.api.category.getById)
-        .put(app.api.category.save)
-        .delete(app.api.category.remove)
+        .put(admin(app.api.category.save))
+        .delete(admin(app.api.category.remove))
 
     app.route('/articles')
+        .all(app.config.passport.authenticate())
         .get(app.api.article.get)
-        .post(app.api.article.save)
+        .post(admin(app.api.article.save))
 
     app.route('/articles/:id')
+        .all(app.config.passport.authenticate())
         .get(app.api.article.getById)
-        .put(app.api.article.save)
-        .delete(app.api.article.remove)
+        .put(admin(app.api.article.save))
+        .delete(admin(app.api.article.remove))
 
 }
