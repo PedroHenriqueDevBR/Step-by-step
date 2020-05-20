@@ -21,7 +21,7 @@ export default {
     },
     computed: {
         icon() {
-            return this.$store.state.isMenuVisible ? 'fa fa-angle-left' : 'fa fa-angle-right'
+            return this.$store.state.isMenuVisible ? 'fa fa-times' : 'fa fa-bars'
         }
     }
 }
@@ -65,6 +65,6 @@ export default {
 
     header.header a.toggle:hover {
         color: #fff;
-        font-size: 1.5rem;
+        font-size: 1.1rem;
     }
 </style>

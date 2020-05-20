@@ -1,6 +1,6 @@
 <template>
     <footer class="footer">
-        <span class="copyright"> Copyright <strong>PedroHenriqueDevBR</strong> © 2020</span>
+        <span class="copyright"> Desenvolvido por <a href="https://pedrohenriquedevbr.github.io/" target="_blank">PedroHenriqueDevBR</a> </span>
     </footer>
 </template>
 
@@ -14,13 +14,22 @@ export default {
 
     .footer {
         grid-area: footer;
-        background-color: #ddd;
+        background-color: #8BC34A;
         color: #333;
 
         display: flex;
         align-items: center;
-        justify-content: flex-end;
+        justify-content: center;
         padding-right: 10px;
+
+        color: #ECEFF1;
+        font-size: 0.9rem;
+    }
+
+    a {
+        text-decoration: none;
+        color: #fff;
+        font-weight: 500;
     }
 
 </style>
