@@ -3,7 +3,7 @@
         <div class="user-button">
             <span class="d-none d-sm-block">{{ user.name }}</span>
             <div class="user-dropdown-img">
-                <Gravatar :email="user.email" alt="user" />
+                <h1>P</h1>
             </div>
             <i class="fa fa-angle-down"></i>
         </div>
@@ -13,15 +13,24 @@
 <script>
 
 import { mapState } from 'vuex'
-import Gravatar from 'vue-gravatar'
 
 export default {
     name: 'UserDropdown',
-    components: { Gravatar },
     computed: mapState(['user'])
 }
 </script>
 
 <style>
+
+.user-dropdown {
+    height: 100px;
+    color: ivory;
+}
+
+.user-button {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
 
 </style>
