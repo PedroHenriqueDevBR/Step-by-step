@@ -3,7 +3,6 @@
         <a href="#" class="toggle" @click="toggleMenu()" v-if="!hideToggle">
             <i class="fa fa-lg" :class="icon"></i>
         </a>
-        <h1 class="title">{{ title }}</h1>
         <UserDropdown v-if="!hideUserDropdowns" />
     </header>
 </template>
@@ -39,7 +38,7 @@ export default {
         background: #000d;
 
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
     }
 

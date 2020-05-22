@@ -38,7 +38,7 @@ export default {
 		--moz-osx-font-smoothing: grayscale;
 	}
 
-	html {
+	body {
 		width: 100%;
 		height: 100%;
 		background: url('./assets/bg.jpg');
