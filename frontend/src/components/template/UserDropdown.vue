@@ -69,7 +69,7 @@ export default {
 }
 
 .user-dropdown-img > img {
-    max-height: 37px;
+    height: 30px;
     border-radius: 5px;
 }
 
