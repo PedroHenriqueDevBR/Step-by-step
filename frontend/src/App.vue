@@ -35,6 +35,7 @@ export default {
 		font-family: Verdana, Geneva, Tahoma, sans-serif;
 		--webkit-font-smoothing: antialiased;
 		--moz-osx-font-smoothing: grayscale;
+		outline: none;
 	}
 
 	body {
