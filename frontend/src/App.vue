@@ -3,7 +3,6 @@
 		<Header title="Step by Step" :hideToggle="false" />
 		<Menu />
 		<Content />
-		<Footer />
 	</div>
 </template>
 
@@ -52,19 +51,17 @@ export default {
 		height: 100vh;
 		display: grid;
 
-		grid-template-rows: 5% 1fr 3%;
+		grid-template-rows: 5% 1fr;
 		grid-template-columns: 20% 1fr;
 		grid-template-areas: 
 			"header header"
-			"menu content"
-			"menu footer";
+			"menu content";
 	}
 	
 	#app.hide-menu {
 		grid-template-areas: 
 			"header header"
-			"content content"
-			"footer footer";
+			"content content";
 	}
 
 

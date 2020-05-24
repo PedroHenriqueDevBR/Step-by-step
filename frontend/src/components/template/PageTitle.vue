@@ -1,6 +1,6 @@
 <template>
   <div class="page-title">
-      <h1><i v-if="icon" :class="icon"> {{ main }} </i></h1>
+      <h4><i v-if="icon" :class="icon"> {{ main }} </i></h4>
       <h2>{{ subtitle }}</h2>
       <hr>
   </div>

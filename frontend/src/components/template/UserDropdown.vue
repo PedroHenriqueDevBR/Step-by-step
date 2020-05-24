@@ -44,10 +44,12 @@ export default {
     height: 100%;
     font-size: 0.8rem;
     cursor: pointer;
+    z-index: 10;
 }
 
 .user-dropdown * {
     outline: none;
+    z-index: 11;
 }
 
 .user-button {

@@ -3,7 +3,7 @@
       <PageTitle icon="fa fa-cogs" main="Administração do sistema" subtitle="Administração geral do sistema" />
       <div class="admin-pages-tabs">
         <b-card no-body>
-          <b-tabs card>
+          <b-tabs card vertical pills>
             <b-tab title="Artigos" active>
               <ArticleAdmin></ArticleAdmin>
             </b-tab>
@@ -33,5 +33,20 @@ export default {
 </script>
 
 <style>
+ul.nav {
+  border: 2px solid #ddd
+}
+li.nav-item {
+  margin-top: 10px;
+  margin-left: 0;
+}
+li.nav-item > a {
+  background: wheat !important;
+  color: #000 !important;
+}
 
+li.nav-item > a.active {
+  background: #263238 !important;
+  color: #fff !important;
+}
 </style>
