@@ -11,7 +11,7 @@ import './config/msgs'
 Vue.config.productionTip = false
 
 // Temporario
-require('axios').defaults.headers.common['Authorization'] = 'bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwibmFtZSI6IkFkbWluaXN0cmFkb3IiLCJlbWFpbCI6ImFkbWluQHN0ZXAuY29tIiwiYWRtaW4iOjEsImlldCI6MTU5MDI3ODcyMCwiZXhwIjoxNTkwNTM3OTIwfQ.CPlGcrbfA20YcoAR04xo-AbuyaLGdGgW_D8bsEmeHEY'
+require('axios').defaults.headers.common['Authorization'] = 'bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwibmFtZSI6IkFkbWluaXN0cmFkb3IiLCJlbWFpbCI6ImFkbWluQHN0ZXAuY29tIiwiYWRtaW4iOjEsImlldCI6MTU5MDM0NjgwNiwiZXhwIjoxNTkwNjA2MDA2fQ.TGNHNUZa6rXUsci8XMCT5witpXNc8Uacv_MhnQZOmk4'
 
 new Vue({
   store,
